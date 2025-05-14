@@ -1,12 +1,14 @@
-﻿namespace Access_Modifiers_Part2
+﻿using Access_Modifiers_Part_2.Service;
+
+namespace Access_Modifiers_Part2
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            User user = new User("Nahidbm","Messi",18);
+            Calculation calculation = new();
 
-
+            Console.WriteLine(calculation.Calc(12, 2, '/'));
         }
     }
 }
