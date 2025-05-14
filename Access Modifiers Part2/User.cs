@@ -13,12 +13,12 @@
             set 
             {
                 if (value.Length < 8)
-                   Console.WriteLine("Password uzunluğu 8-dən kiçik ola bilməz");
+                    throw new ArgumentException("Password uzunluğu 8-dən kiçik ola bilməz");
                 if (string.IsNullOrWhiteSpace(value))
                     throw new ArgumentException("Password boş ola bilməz");
-                if (!HasNumber(value))
+                if (HasNumber(value))
                     throw new ArgumentException("Passwordun içində ən az bir rəqəm olmalıdır");
-                if (!HasUppercaseLetter(value))
+                if (HasUppercaseLetter(value))
                     throw new ArgumentException("Passwordun içində ən az bir böyük hərf olmalıdır");
 
                 _password = value;
@@ -39,7 +39,7 @@
         }
         private bool HasUppercaseLetter(string input)
         {
-            foreach (char a in Password)
+            foreach (char a in input)
             {
                 if (!char.IsUpper(a))
                 {
